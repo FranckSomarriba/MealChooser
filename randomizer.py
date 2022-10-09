@@ -29,6 +29,9 @@ def food_randomizer():
 
     return mealChoices
 
+def food():
+    mealChoices = sample(fastFoodDict.keys(), 3)
+    return mealChoices
 
 
 if __name__ == '__main__':
