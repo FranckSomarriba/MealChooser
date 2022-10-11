@@ -1,58 +1,22 @@
 {% extends 'base.html' %}
-
-
 {% block head %}
 
+<title>Meal Chooser</title>
 
 {% endblock %}
 
 
+{% block content %}
+    {% for foods in food %}
+        <article class="media content-section">
+            <div class="media-body">
+            <h2><a class="article-title" href={{foodlist[foods][1]}}>{{ foods }}</a></h2>
 
-{% block body %}
+            </div>
+        </article>
 
-    <style>
-        .button {
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
+    {% endfor %}
+    <input type="submit" name="submit_button" value="What you want?">
 
-        .button1 {
-            background-color: #4CAF50;
-        }
 
-        /* Green */
-
-        .button2 {
-            background-color: #008CBA;
-        }
-
-        /* Blue */
-    </style>
-
-<body>
-    <button class="button button1" onclick="myFunction()">Promotions</button>
-    <button class="button button2" onclick="myFunction1()">Previous</button>
-    <form action = '/mylink/'>
-    
-    </form>
-</body>
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "McDonalds";
-}
-function myFunction1() {
-  document.getElementById("demo").innerHTML = "BurgerKing";
-}
-</script>
-</html>
-
-{% endblock %}
+{% endblock content %}

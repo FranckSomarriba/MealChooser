@@ -33,7 +33,5 @@ def food():
     mealChoices = sample(fastFoodDict.keys(), 3)
     return mealChoices
 
-
 if __name__ == '__main__':
-
-    print(food_randomizer())
+    print(food())
