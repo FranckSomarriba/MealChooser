@@ -11,12 +11,12 @@
         <article class="media content-section">
             <div class="media-body">
             <h2><a class="article-title" href={{foodlist[foods][1]}}>{{ foods }}</a></h2>
-
+            <img src="/static/images/{{ foods }}.png" alt="{{ foods }}" width='40%' height="40%">
             </div>
         </article>
 
     {% endfor %}
-    <input type="submit" name="submit_button" value="What you want?">
+
 
 
 {% endblock content %}
