@@ -6,7 +6,8 @@ jobs:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: python3 randomizer.py
+      - python/install-packages:
+         pkg-manager: pip
   test:
     working_directory: ~/circleci-python
     docker:
