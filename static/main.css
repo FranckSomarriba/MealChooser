@@ -1,16 +1,22 @@
 body {
-  background: #FAFAFA;
-  color: #333333;
-  margin-top: 5rem;
+  background-image: url("/static/images/Pizza3.svg");
+  background-repeat: repeat;
+  background-color: #ffffff;
+  margin-top: 3rem;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #ffffff;
 }
 .bg-steel {
-  background-color: #5F788A;
+  background-color: #ED7D31;
 }
 .site-header .navbar-nav .nav-link {
-  color: #CBD5DB;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: #ffffff;
+}
+.navbar-brand{
+  font-family: omic Sans MS, Comic Sans, cursive;
+  font-weight: bolder;
 }
 .site-header .navbar-nav .nav-link:hover {
   color: #181616;
@@ -69,4 +75,37 @@ a.article-title:hover {
 
 .d-grid{
   margin-top: 20px;
+}
+
+.carousel-control-prev-icon{
+  scale: 2;
+}
+
+.carousel-control-next-icon{
+  scale: 2;
+}
+
+.d-block{
+  border-radius: 50px;
+  height: 350px;
+  margin: auto;
+  
+}
+
+.feature_button{
+  padding: 2%;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: #ED7D31;
+  width: 40%;
+  border-color: #ED7D31;
+  text-align: center;
+  align-self: center;
+  margin: auto;
+  border-radius: 100px;
+}
+
+.media-body{
+  opacity: .2;
 }
