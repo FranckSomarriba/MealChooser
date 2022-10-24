@@ -14,21 +14,6 @@ recipeDict = {}
 for lists in recipe["data"]:
     recipeDict[lists[0]] = lists[1:]
 
-
-
-def food_randomizer():
-    """
-    This function helps the user choose between fast food or recipe
-    :return: Three keys
-    """
-    typeOfFood = input("What type of food do you want today?\nWrite 'F' for fast food, or 'R' for a home cook recipe: ")
-    if typeOfFood.lower() == "f":
-        mealChoices = sample(fastFoodDict.keys(), 3)
-    else:
-        mealChoices = sample(recipeDict.keys(), 3)
-
-    return mealChoices
-
 def food():
     mealChoices = sample(fastFoodDict.keys(), 3)
     return mealChoices

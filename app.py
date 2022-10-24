@@ -20,6 +20,7 @@ def about():
 def mealchooser():
     return render_template('mealchooser.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict, title='mealchooser')
 
+
 if __name__ == "__main__":
     app.run(debug=True)
     
