@@ -13,7 +13,7 @@ class TestRandomizer:
 class TestApp:
     def test_one(self):
         actual = 4
-        assert actual == 4
+        assert actual == 3
 
 
         
