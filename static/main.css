@@ -2,7 +2,7 @@ body {
   background-image: url("/static/images/Pizza3.svg");
   background-repeat: repeat;
   background-color: #ffffff;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
@@ -25,19 +25,27 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 .content-section {
-  background: #FFFFFF;
+  background-color: #ffffff;
   padding: 10px 20px;
-  border: 1px solid #DDDDDD;
-  border-radius: 3px;
+  border: 10px solid #ED7D31;
+  width: 70%;
+  margin-left: 15%;
+  border-radius: 200px 0px 200px 0;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 .article-title {
   color: #444444;
+  text-align: center;
 }
-a.article-title:hover {
-  color: #428BCA;
-  text-decoration: none;
+
+.media-body{
+  align-self: center;
 }
+.food_images{
+  margin-left: 30%;
+}
+
 .article-content {
   white-space: pre-line;
 }
@@ -104,5 +112,14 @@ a.article-title:hover {
   align-self: center;
   margin: auto;
   border-radius: 100px;
+}
+
+.coming{
+  font-size: 1000%;
+  font-weight: bolder;
+  color: #000000;
+  text-align: center;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  margin-top: 10%;
 }
 

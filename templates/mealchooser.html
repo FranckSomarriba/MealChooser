@@ -1,10 +1,13 @@
 {% extends 'layout.html' %}
 {% block content %}
-    {% for foods in food %}
+    <div class="d-grid gap-4">
+        <a class="feature_button btn btn-primary" href="{{url_for('mealchooser')}}" >Want to try again?</a>
+    </div>
+        {% for foods in food %}        
         <article class="media content-section">
             <div class="media-body">
-            <h2><a class="article-title" href={{foodlist[foods][1]}}>{{ foods }}</a></h2>
-            <img src="/static/images/{{ foods }}.png" alt="{{ foods }}" width='40%' height="40%">
+            <h2 class="article-title">{{ foods }}</h2>
+            <a href="{{foodlist[foods][1]}}" ><img src="/static/images/{{ foods }}.png" class="food_images" alt="{{ foods }}" width='40%' height="40%"></a>
             </div>
         </article>
 
