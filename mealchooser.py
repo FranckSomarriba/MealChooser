@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = '0c2d1a4bd71fc47b799b7b0de1daee0f'
 
 
 @app.route('/', methods=['POST', 'GET'])
-@app.route('/home')
+@app.route('/home', methods=['POST', 'GET'])
 def home():    
     if request.method == 'POST':
         zipCode = request.form['zip_code']
