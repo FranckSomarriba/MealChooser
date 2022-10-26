@@ -54,6 +54,12 @@
         <a class="feature_button btn btn-primary" href="{{url_for('previous')}}" role="button" >Previous</a>
     </div>
 
-    
+    <form action="/" method="POST">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+        <input type="text" class="form-control" name="zip_code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      {{ zipCode }}
+    </form>
 {% endblock content %}
 
