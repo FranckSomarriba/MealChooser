@@ -7,6 +7,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
+.zip{
+  color: black;
+}
 .bg-steel {
   background-color: #ED7D31;
 }
@@ -97,6 +100,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   height: 350px;
   margin: auto;
+ 
   
 }
 
@@ -123,3 +127,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 10%;
 }
 
+.input-group{
+  margin-top: 20px;
+}

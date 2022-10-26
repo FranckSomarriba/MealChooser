@@ -11,7 +11,11 @@ app.config['SECRET_KEY'] = '0c2d1a4bd71fc47b799b7b0de1daee0f'
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home')
 def home():    
-    return render_template('home.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict)
+    if request.method == 'POST':
+        zipCode = request.form['zip_code']
+        return render_template('home.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict, zipCode=zipCode)
+    else:
+        return render_template('home.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict)
 
 @app.route('/about')
 def about():

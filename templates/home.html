@@ -56,10 +56,10 @@
 
     <form action="/" method="POST">
       <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+        <span class="input-group-text" id="inputGroup-sizing-default">Zip Code</span>
         <input type="text" class="form-control" name="zip_code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
-      {{ zipCode }}
+      <h1 class="zip">Your Zip Code is: {{ zipCode }}</h1>
     </form>
 {% endblock content %}
 
