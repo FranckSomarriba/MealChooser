@@ -17,8 +17,11 @@ jobs:
           
           command: pytest
 
-
 workflows:
-  sample: 
+  webpage: 
     jobs:
-      - build-and-test
+      - build-and-test:
+         filters:
+            branches:
+              only:
+                - master
