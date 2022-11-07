@@ -1,11 +1,7 @@
-from flask import Flask, render_template, request, url_for, redirect, flash, request
-from flask_sqlalchemy import SQLAlchemy
-import randomizer
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '0c2d1a4bd71fc47b799b7b0de1daee0f'
+from flask import render_template, request, url_for, redirect, flash, request
+from mealchooser import app
+from mealchooser import randomizer
+from mealchooser.forms import RegistrationForm
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -25,11 +21,6 @@ def about():
 def mealchooser():
     return render_template('mealchooser.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict, title='mealchooser')
 
-@app.route('/login')
-def login():
-    form = LoginForm()
-    return render_template("login.html", title="Login", form=form)
-
 @app.route('/singup', methods=['GET','POST'])
 def singup():
     form = RegistrationForm()
@@ -45,9 +36,3 @@ def promotions():
 @app.route('/previous')
 def previous():
     return render_template("previous.html",title= "previous")
-
-if __name__ == "__main__":
-    app.run(debug=True)
-    
-
-    

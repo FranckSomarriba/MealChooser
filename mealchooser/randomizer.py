@@ -1,7 +1,7 @@
 from random import sample
 import pandas as pd
 
-df = pd.read_csv('mealchooser.csv')       # Database is placed in a data frame
+df = pd.read_csv('mealchooser/mealchooser.csv')       # Database is placed in a data frame
 # Creation of a dictionary that has only fast food restaurants
 fastFood = df[df["Type of Food"] == "Fast Food"].to_dict('split')
 fastFoodDict = {}
