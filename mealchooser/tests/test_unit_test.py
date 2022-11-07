@@ -1,4 +1,4 @@
-import randomizer
+from mealchooser import site_functions
 import pytest
 
 class TestRandomizer:
@@ -8,7 +8,7 @@ class TestRandomizer:
         WHEN core feature is clicked
         THEN three names would be returned
         """      
-        actual = len(randomizer.food())
+        actual = len(site_functions.food())
         assert actual == 3       
 
     def test_two(self):
@@ -17,8 +17,8 @@ class TestRandomizer:
         WHEN core feature is clicked
         THEN three restaurants with food type "fast food" are returned
         """     
-        for foods in randomizer.food():
-            assert foods in randomizer.fastFoodDict.keys()
+        for foods in site_functions.food():
+            assert foods in site_functions.fastFoodDict.keys()
 
 
 

@@ -1,10 +1,9 @@
 from flask import Flask
-import json
 from http import client
 from mealchooser import app
 from unittest import TestCase
 from unittest.mock import patch
-import requests
+import pytest
 
 
 

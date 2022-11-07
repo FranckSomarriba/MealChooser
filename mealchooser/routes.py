@@ -1,8 +1,8 @@
 from flask import render_template, request, url_for, redirect, flash, request
-from mealchooser import app
+from mealchooser import app, db, bcrypt
 from mealchooser import site_functions
 from mealchooser.forms import RegistrationForm
-
+from mealchooser.models import User
 
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
@@ -25,6 +25,8 @@ def mealchooser():
 def singup():
     form = RegistrationForm()
     if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username, email=form.email, password=form.password)
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
     return render_template("singup.html", title="sing-up", form=form)
