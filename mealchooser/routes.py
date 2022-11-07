@@ -3,6 +3,7 @@ from mealchooser import app, db, bcrypt
 from mealchooser import site_functions
 from mealchooser.forms import RegistrationForm
 from mealchooser.models import User
+from mealchooser.forms import RegistrationForm, LoginForm
 
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
@@ -38,3 +39,8 @@ def promotions():
 @app.route('/previous')
 def previous():
     return render_template("previous.html",title= "previous")
+
+@app.route('/login')
+def login():
+    form = LoginForm()
+    return render_template("login.html", title="Login", form=form)
