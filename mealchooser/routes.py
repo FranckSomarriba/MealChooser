@@ -1,6 +1,6 @@
 from flask import render_template, request, url_for, redirect, flash, request
 from mealchooser import app
-from mealchooser import randomizer
+from mealchooser import site_functions
 from mealchooser.forms import RegistrationForm
 
 
@@ -9,9 +9,9 @@ from mealchooser.forms import RegistrationForm
 def home():    
     if request.method == 'POST':
         zipCode = request.form['zip_code']
-        return render_template('home.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict, zipCode=zipCode)
+        return render_template('home.html', food=site_functions.food(), foodlist=site_functions.fastFoodDict, zipCode=zipCode)
     else:
-        return render_template('home.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict)
+        return render_template('home.html', food=site_functions.food(), foodlist=site_functions.fastFoodDict)
 
 @app.route('/about')
 def about():
@@ -19,7 +19,7 @@ def about():
 
 @app.route('/mealchooser', methods=['POST', 'GET'])
 def mealchooser():
-    return render_template('mealchooser.html', food=randomizer.food(), foodlist=randomizer.fastFoodDict, title='mealchooser')
+    return render_template('mealchooser.html', food=site_functions.food(), foodlist=site_functions.fastFoodDict, title='mealchooser')
 
 @app.route('/singup', methods=['GET','POST'])
 def singup():
