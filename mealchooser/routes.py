@@ -1,7 +1,6 @@
-from flask import render_template, request, url_for, redirect, flash, request
+from flask import render_template, request, url_for, redirect, flash
 from mealchooser import app, db, bcrypt
 from mealchooser import site_functions
-from mealchooser.forms import RegistrationForm
 from mealchooser.models import User
 from mealchooser.forms import RegistrationForm, LoginForm
 
@@ -27,9 +26,11 @@ def singup():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username, email=form.email, password=form.password)
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
+        return redirect(url_for('login'))
     return render_template("singup.html", title="sing-up", form=form)
 
 @app.route('/promotions')
