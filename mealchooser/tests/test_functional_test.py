@@ -6,7 +6,6 @@ from unittest.mock import patch
 import pytest
 
 
-
 def test_home_page():
     """
     GIVEN user request on choices

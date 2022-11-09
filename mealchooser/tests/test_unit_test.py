@@ -1,5 +1,6 @@
 from mealchooser import site_functions
 import pytest
+from mealchooser.models import User
 
 class TestRandomizer:
     def test_one(self):
@@ -20,7 +21,18 @@ class TestRandomizer:
         for foods in site_functions.food():
             assert foods in site_functions.fastFoodDict.keys()
 
-
+class TestUserCreation:
+    def test_new_user(self):
+        """
+        GIVEN a User model
+        WHEN a new User is created
+        THEN check the email, password, and role fields are defined correctly
+        """
+        user = User(username='testing', email='testsample@gmail.com', password='testpassword')
+        assert user.username == 'testing'
+        assert user.email == 'testsample@gmail.com'
+        assert user.password == 'testpassword'
+        
 
 
         
