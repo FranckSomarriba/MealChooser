@@ -1,4 +1,4 @@
-from mealchooser import db, login_manager
+from mealchooser import db, login_manager, app
 from mealchooser import app
 from itsdangerous import URLSafeTimedSerializer as Serializer
 from flask_login import UserMixin
@@ -6,16 +6,16 @@ from flask_login import LoginManager
 from flask import current_app as app
 
 @login_manager.user_loader
-def load_user(user):
-    return User.query.get(int(user))
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     
-    def get_reset_token(self,expires_sec=1800):
+    def get_reset_token(self, expires_sec=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_sec)
         return s.dumps({'user_id': self.id}).decode('utf-8')
 
@@ -33,5 +33,5 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()

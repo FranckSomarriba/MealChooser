@@ -1,13 +1,13 @@
 import os
 import secrets
-from flask import render_template, request, url_for, redirect, flash
+from flask import render_template, request, url_for, redirect, flash, abort
 from mealchooser import app, db, bcrypt, mail
 from mealchooser import site_functions
 from mealchooser.models import User
 from mealchooser.forms import RegistrationForm, LoginForm
 from mealchooser.forms import RequestResetForm,ResetPasswordForm
 from flask_mail import Message
-from flask_login import current_user
+from flask_login import current_user, login_user, logout_user, login_required
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -53,14 +53,14 @@ def login():
     return render_template("login.html", title="Login", form=form)
 
 def send_reset_email(user):
-    token = User.get_reset_token()
+    token = user.get_reset_token()
     msg = Message('Password Reset Request', sender='noreply@demo.com', recipients=[user.email])
     msg.body = f'''To reset your password visit the following link:
 {url_for('reset_token', token =token,_external = True)}
 
 If you did not made this request simply ignore this email and no changes will be made
 '''
-
+    mail.send(msg)
 
 @app.route("/reset_password", methods=['GET', 'POST'])
 def reset_request():
@@ -72,7 +72,7 @@ def reset_request():
         send_reset_email(user)
         flash('An email as been sent with instructions to reset your password.', 'info')
         return redirect(url_for('login'))
-     return render_template('reset_request.html', title='Reset Password', form = form)
+     return render_template('reset_request.html', title='Reset Password', form=form)
     
 @app.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
