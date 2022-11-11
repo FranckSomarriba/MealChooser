@@ -1,4 +1,4 @@
-Name,Type of Food,URL
+Name,Type of Food,URL,Ingredients
 Olive Garden,Fast Food,https://www.olivegarden.com/home
 Mcdonalds,Fast Food,https://www.mcdonalds.com/us/en-us.html
 Buffalo Wild Wings,Fast Food,https://www.buffalowildwings.com/
@@ -9,9 +9,10 @@ Chipotle,Fast Food,https://www.chipotle.com/
 Panera Bread,Fast Food,https://www.panerabread.com/en-us/home.html
 KFC,Fast Food,https://www.kfc.com/
 Pizza Hut,Fast Food,https://www.pizzahut.com/
-Chicken Biryani,Recipe,https://www.allrecipes.com/recipe/16102/chicken-biryani/
-Baked Spaghetti,Recipe,https://www.allrecipes.com/recipe/222582/baked-spaghetti/
-Black Bean Chilli,Recipe,https://www.allrecipes.com/search/results/?search=Black+Bean+Chilli
+Chicken Biryani,Recipe,https://www.allrecipes.com/recipe/16102/chicken-biryani/,'vegetable oil,potatoes,onions,cloves,ginger root'
+Baked Spaghetti,Recipe,https://www.allrecipes.com/recipe/222582/baked-spaghetti/,'spaghetti,ground beef,onion,chopped,spaghetti sauce,eggs,' 
+Black Bean Chilli,Recipe,https://www.allrecipes.com/search/results/?search=Black+Bean+Chilli,'garlic cloves,ground oregano,ground cumin,cayenne pepper,chili powder,
+
 Spicy Chicekn Nuggets,Recipe,https://www.allrecipes.com/recipe/281683/spicy-chicken-nuggets/
 French Fried Potatoes,Recipe,https://www.allrecipes.com/recipe/35963/french-fried-potatoes/
 Instant Pot BBQ Chicken Thighs,Recipe,https://www.allrecipes.com/recipe/272405/instant-pot-bbq-chicken-thighs/
