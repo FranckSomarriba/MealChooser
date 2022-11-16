@@ -1,13 +1,13 @@
 /* Layout */
 body {
-  background-image: url("/static/images/Pizza3.svg");
+  background-image: url("/static/images/site assets/Pizza3.svg");
   background-repeat: repeat;
   background-color: #ffffff;
   margin-top: 4rem;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
-}
+} 
 .zip{
   color: black;
 }
@@ -19,6 +19,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Comic Sans MS, Comic Sans, cursive;
   color: #ffffff;
 }
+/* Layout end */
 
 .site-header .navbar-nav .nav-link:hover {
   color: #181616;

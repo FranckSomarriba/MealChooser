@@ -33,14 +33,5 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
-class FoodItem(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    food_name = db.Column(db.String(20), unique=True, nullable=False)
-    food_type = db.Column(db.String(20), unique=True, nullable=False)
-    url = db.Column(db.String(20), unique=True, nullable=False)
-
-    def __repr__(self):
-        return f"Food('{self.food_name}', '{self.food_type}')"
-
 # with app.app_context():
 #     db.create_all()

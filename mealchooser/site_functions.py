@@ -1,6 +1,6 @@
 from random import sample
 import pandas as pd
-from mealchooser.models import FoodItem
+
 
 df = pd.read_csv('mealchooser/mealchooser.csv')       # Database is placed in a data frame
 # Creation of a dictionary that has only fast food restaurants
