@@ -1,65 +1,66 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    <div class="carousel-item active" data-bs-interval="10000">
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 4"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <a href="{{foodlist['Mcdonalds'][1]}}">
-          <img src="/static/foods/McDonalds - Food.jpg" class="d-block w-100" alt="McDonalds">
-        </a>
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <a href="{{foodlist['Olive Garden'][1]}}">
-         <img src="/static/foods/Olive garden - food.jpeg" class="d-block w-100" alt="Olive garden">
-        </a>  
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <a href="{{foodlist['Panda Express'][1]}}">
-         <img src="/static/foods/panda express - food.jpg" class="d-block w-100" alt="Panda express">
-        </a>  
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <a href="{{foodlist['Panera Bread'][1]}}">
-         <img src="/static/foods/panera bread - food.jpg" class="d-block w-100" alt="panera bread">
-        </a>
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <a href="{{foodlist['Taco Bell'][1]}}">
-         <img src="/static/foods/taco bell - food.jpg" class="d-block w-100" alt="taco bell">
-        </a>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-   
-    <div class="d-grid gap-4">
-        
-        <a class="feature_button btn btn-primary" href="{{url_for('mealchooser')}}" >What do you want to eat?</a>
-        <a class="feature_button btn btn-primary" href="{{url_for('promotions')}}" role="button" >Promotions</a>
-        <a class="feature_button btn btn-primary" href="{{url_for('previous')}}" role="button" >Previous</a>
-    </div>
 
-    <form action="/" method="POST">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Zip Code</span>
-        <input type="text" class="form-control" name="zip_code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-      <h1 class="zip">Your Zip Code is: {{ zipCode }}</h1>
-    </form>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href="{{foodlist['Mcdonalds'][1]}}">
+        <img src="/static/foods/McDonalds - Food.jpg" class="d-block w-100" alt="McDonalds">
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a href="{{foodlist['Olive Garden'][1]}}">
+        <img src="/static/foods/Olive garden - food.jpeg" class="d-block w-100" alt="Olive garden">
+      </a>  
+    </div>
+    <div class="carousel-item">
+      <a href="{{foodlist['Panda Express'][1]}}">
+        <img src="/static/foods/panda express - food.jpg" class="d-block w-100" alt="Panda express">
+      </a>  
+    </div>
+    <div class="carousel-item">
+      <a href="{{foodlist['Panera Bread'][1]}}">
+        <img src="/static/foods/panera bread - food.jpg" class="d-block w-100" alt="panera bread">
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a href="{{foodlist['Taco Bell'][1]}}">
+        <img src="/static/foods/taco bell - food.jpg" class="d-block w-100" alt="taco bell">
+      </a>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+   
+<div class="d-grid gap-4">
+        
+  <a class="feature_button btn btn-primary" href="{{url_for('mealchooser')}}" >What do you want to eat?</a>
+  <a class="feature_button btn btn-primary" href="{{url_for('promotions')}}" role="button" >Promotions</a>
+  <a class="feature_button btn btn-primary" href="{{url_for('previous')}}" role="button" >Previous</a>
+</div>
+
+<form action="/" method="POST">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Zip Code</span>
+      <input type="text" class="form-control" name="zip_code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <h1 class="zip">Your Zip Code is: {{ zipCode }}</h1>
+</form>
 {% endblock content %}
 

@@ -1,3 +1,4 @@
+/* Layout */
 body {
   background-image: url("/static/images/Pizza3.svg");
   background-repeat: repeat;
@@ -10,6 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 .zip{
   color: black;
 }
+
 .bg-steel {
   background-color: #ED7D31;
 }
@@ -17,10 +19,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Comic Sans MS, Comic Sans, cursive;
   color: #ffffff;
 }
-.navbar-brand{
-  font-family: omic Sans MS, Comic Sans, cursive;
-  font-weight: bolder;
-}
+
 .site-header .navbar-nav .nav-link:hover {
   color: #181616;
 }
@@ -87,6 +86,11 @@ h1, h2, h3, h4, h5, h6 {
 .d-grid{
   margin-top: 20px;
 }
+.carousel{
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+}
 
 .carousel-control-prev-icon{
   scale: 2;
@@ -99,6 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 .d-block{
   border-radius: 50px;
   height: 350px;
+  width: max-content;
   margin: auto;
  
   
