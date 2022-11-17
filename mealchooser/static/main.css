@@ -1,113 +1,46 @@
-/* Layout */
+/* Layout or used by multiple pages*/
 body {
   background-image: url("/static/images/site assets/Pizza3.svg");
   background-repeat: repeat;
   background-color: #ffffff;
-  margin-top: 4rem;
+  margin-top: 7em;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1, h3, h4, h5, h6 {
   color: #ffffff;
 } 
+
 .zip{
-  color: black;
+  color: #0c0c0c;
 }
 
 .bg-steel {
-  background-color: #ED7D31;
+  background-color: #0c0c0c;
 }
+
 .site-header .navbar-nav .nav-link {
   font-family: Comic Sans MS, Comic Sans, cursive;
   color: #ffffff;
+  font-size: large;
 }
-/* Layout end */
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #181616;
+  color: #ED7D31;
 }
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
-}
+
 .content-section {
   background-color: #ffffff;
   padding: 10px 20px;
-  border: 10px solid #ED7D31;
+  border: 10px solid #0c0c0c;
   width: 70%;
   margin-left: 15%;
   border-radius: 200px 0px 200px 0;
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.article-title {
-  color: #444444;
-  text-align: center;
-}
-
-.media-body{
-  align-self: center;
-}
-.food_images{
-  margin-left: 30%;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #E3E3E3
-}
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-.account-heading {
-  font-size: 2.5rem;
-}
-.form-group{
-  padding: 10px;
-}
 
 .d-grid{
   margin-top: 20px;
-}
-.carousel{
-  width: 100%;
-  box-sizing: border-box;
-  margin: auto;
-}
-
-.carousel-control-prev-icon{
-  scale: 2;
-}
-
-.carousel-control-next-icon{
-  scale: 2;
-}
-
-.d-block{
-  border-radius: 50px;
-  height: 350px;
-  width: max-content;
-  margin: auto;
- 
-  
 }
 
 .feature_button{
@@ -132,10 +65,75 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Comic Sans MS, Comic Sans, cursive;
   margin-top: 10%;
 }
+/* END Layout */
+
+
+
+/* Mealchooser */
+.try_again_button{
+  background-color: #0c0c0c;
+  border-color: #0c0c0c;
+}
+
+.try_again_button:hover{
+  background-color: #ED7D31;
+  border-color: #ED7D31;
+}
+
+.food-title {
+  color: #444444;
+  text-align: center;  
+}
+
+.mealchooser{  
+  text-align: center;
+}
+
+.food_images{
+  align-self: center;
+}
+/* END Mealchooser */
+
+
+
+/* Login, Singup, reset request, reset token */
+.form-group{
+  padding: 10px;
+}
+/* END Login, Singup, Reset Request, Reset Token*/
+
+
+
+/* Home Page */
+.carousel{
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.carousel-control-prev-icon{
+  scale: 2;
+}
+
+.carousel-control-next-icon{
+  scale: 2;
+}
+
+.d-block{
+  border-radius: 50px;
+  height: 350px;
+  width: max-content;
+  margin: auto;
+}
 
 .input-group{
   margin-top: 20px;
 }
+/* END Home Page */
+
+
+
+/* Promotions */
 .coupon {
   border: 5px dotted #bbb;
   width: 80%;
@@ -152,3 +150,4 @@ h1, h2, h3, h4, h5, h6 {
 .expire {
   color: red;
 }
+/* END Promotions */
