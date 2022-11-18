@@ -16,7 +16,6 @@ jobs:
       - run:
           name: Run tests          
           command: pytest
-      -run:
           name: Compile code
           command: run.py      
 
