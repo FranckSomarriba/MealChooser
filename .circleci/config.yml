@@ -16,8 +16,7 @@ jobs:
       - run:
           name: Run tests          
           command: pytest
-          name: Compile code
-          command: run.py      
+             
 
 workflows:
   webpage: 
