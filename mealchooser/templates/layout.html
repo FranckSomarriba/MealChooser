@@ -66,6 +66,24 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
     integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
     crossorigin="anonymous"></script>
+
+  <!-- JavaScript to collapse the navbar when scrolling down -->
+  <script>
+    
+    const nav = document.querySelector(".navbar");
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      if (lastScrollY < window.scrollY) {       
+          nav.classList.add('nav--hidden');
+      } else {
+          nav.classList.remove('nav--hidden');
+      }
+      lastScrollY = window.scrollY;
+
+    });
+
+  </script>
 </body>
 
 </html>

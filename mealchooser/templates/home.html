@@ -2,7 +2,7 @@
 {% block content %}
 
 
-
+<!--Carousel showing the images of food-->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -14,7 +14,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <a href="{{foodlist['Mcdonalds'][1]}}">
-        <img src="/static/images/foods/McDonalds - food.jpg" class="d-block w-100" alt="McDonalds">
+        <img src="/static/images/foods/Mcdonalds - food.jpg" class="d-block w-100" alt="McDonalds">
       </a>
     </div>
     <div class="carousel-item">
@@ -47,20 +47,38 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-   
-<div class="d-grid gap-4">
-        
-  <a class="feature_button btn btn-primary" href="{{url_for('mealchooser')}}" >What do you want to eat?</a>
-  <a class="feature_button btn btn-primary" href="{{url_for('promotions')}}" role="button" >Promotions</a>
-  <a class="feature_button btn btn-primary" href="{{url_for('previous')}}" role="button" >Previous</a>
-</div>
 
+<!--Buttons to redirect user to the core features -->
+<section class="bg-gray py-2 py-lg-3 py-xl-4 py-xxl-5" id="landings">
+  <div class="container mt-1 mb-2 mt-sm-2 mb-sm-3 mt-md-3 mb-md-4 my-lg-4">
+    <h2 class="display-5 text-center pt-xxl-2">Choose Your Meal</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 gy-5 pb-xl-3">
+      <!-- Fast Food Randomizer-->
+      <div class="col">
+        <div class="card-hover card-lifted position-relative mx-auto" style="max-width: 416px">
+          <h3 class="h5 text-center mb-0"><a class="stretched-link" href="{{url_for('mealchooser')}}">Fast Food</a></h3>
+          <div class="card-lifted overflow-hidden rounded-5 mb-3"><img class="d-dark-mode-none" src="/static/images/site assets/hamburger.jpg" alt="Mobile App Showcase"><img class="d-none d-dark-mode-block" alt="Mobile App Showcase"></div>
+          
+        </div>
+      </div>
+      <!-- Recepie Randomizer-->
+      <div class="col">
+        <div class="card-hover card-lifted position-relative mx-auto" style="max-width: 416px;">
+          <h3 class="h5 text-center mb-0"><a class="stretched-link" href="landing-saas-v1.html">Home Cook</a></h3>
+          <div class="card-lifted overflow-hidden rounded-5 mb-3"><img class="d-dark-mode-none" src="/static/images/site assets/home cook.jpg" alt="SaaS v.1"><img class="d-none d-dark-mode-block" alt="SaaS v.1"></div>
+          
+        </div>
+      </div>
+
+<!--
+Zip code input
 <form action="/" method="POST">
-  <div class="input-group mb-3">
+  <div class="input-group mb-3 mt-5">
     <span class="input-group-text" id="inputGroup-sizing-default">Zip Code</span>
       <input type="text" class="form-control" name="zip_code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
   </div>
   <h1 class="zip">Your Zip Code is: {{ zipCode }}</h1>
 </form>
+-->
 {% endblock content %}
 

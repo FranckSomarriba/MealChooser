@@ -16,7 +16,7 @@ for lists in recipe["data"]:
     recipeDict[lists[0]] = lists[1:]
 
 def food():
-    mealChoices = sample(fastFoodDict.keys(), 3)
+    mealChoices = sample(list(fastFoodDict.keys()), 3)
     return mealChoices
 
 if __name__ == '__main__':

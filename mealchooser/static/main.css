@@ -1,6 +1,8 @@
 /* Layout or used by multiple pages*/
 body {
-  background-image: url("/static/images/site assets/Pizza3.svg");
+  background-image: url("/static/images/site assets/background opacity.png");
+  
+  background-size: contain;
   background-repeat: repeat;
   background-color: #ffffff;
   margin-top: 7em;
@@ -11,9 +13,18 @@ body {
 }
 
 .site-header .navbar-nav .nav-link {
-  font-family: Comic Sans MS, Comic Sans, cursive;
   color: #ffffff;
   font-size: large;
+  top: 0;
+}
+
+.navbar{
+  transition: transform 0.3s;
+}
+
+.nav--hidden{
+  transform: translateY(-84px);
+  box-shadow: none;
 }
 
 .site-header .navbar-nav .nav-link:hover {
@@ -46,7 +57,6 @@ h1, h3, h4, h5, h6 {
 
 .feature_button{
   padding: 2%;
-  font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 20px;
   font-weight: bolder;
   background-color: #ED7D31;
@@ -74,7 +84,6 @@ h1, h3, h4, h5, h6 {
 .carousel{
   width: 100%;
   box-sizing: border-box;
-  margin: auto;
 }
 
 .carousel-control-prev-icon{
@@ -89,11 +98,41 @@ h1, h3, h4, h5, h6 {
   border-radius: 50px;
   height: 350px;
   width: max-content;
-  margin: auto;
+  
 }
 
 .input-group{
   margin-top: 20px;
+}
+
+.display-5{
+  font-family: 'Brush Script MT';
+  font-size: 600%;
+  margin-top: 0;
+  padding: 0%;
+}
+
+.stretched-link{
+  text-decoration: none;
+  font-size: 150%;
+  color: #000000;
+  font-weight: bolder;  
+}
+.stretched-link:hover{
+  color: black ;
+}
+.card-lifted{
+  height: 400px;  
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+.card-lifted:hover{
+  transform: translateY(-5%);
+}
+
+.d-dark{
+  border-radius: 100%;
 }
 
 .zip{
@@ -107,11 +146,13 @@ h1, h3, h4, h5, h6 {
 .try_again_button{
   background-color: #0c0c0c;
   border-color: #0c0c0c;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .try_again_button:hover{
   background-color: #ED7D31;
   border-color: #ED7D31;
+  
 }
 
 .food-title {
