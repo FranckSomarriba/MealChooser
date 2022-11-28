@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="d-grid gap-4">
+        <a class="try_again_button feature_button btn btn-primary" href="{{url_for('homecook')}}" >Want to try again?</a>
+    </div>
+        {% for foods in food %}        
+        <article class="media content-section">
+            <div class="mealchooser">
+            <h2 class="food-title">{{ foods }}</h2>
+            <a href="{{foodlist[foods][1]}}" ><img src="/static/images/foods{{ foods }}.png" class="food_images" alt="{{ foods }}" width='40%' height="40%"></a>
+            </div>
+        </article>
+
+        {% endfor %}
+
+
+
+{% endblock content %}
