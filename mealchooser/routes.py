@@ -27,8 +27,8 @@ def about():
 def mealchooser():
     return render_template('mealchooser.html', food=site_functions.food(), foodlist=site_functions.fastFoodDict, title='mealchooser')
 
-@app.route('/singup', methods=['GET','POST'])
-def singup():
+@app.route('/signup', methods=['GET','POST'])
+def signup():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -37,7 +37,7 @@ def singup():
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('login'))
-    return render_template("singup.html", title="sing-up", form=form)
+    return render_template("signup.html", title="sing-up", form=form)
 
 @app.route('/promotions')
 def promotions():
