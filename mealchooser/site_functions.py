@@ -19,5 +19,12 @@ def food():
     mealChoices = sample(list(fastFoodDict.keys()), 3)
     return mealChoices
 
+def homecook():
+    homecookChoices = sample(list(recipeDict.keys()),3)
+    return homecookChoices
+
 if __name__ == '__main__':
     print(food())
+
+if __name__ == '__main__':
+    print(homecook())

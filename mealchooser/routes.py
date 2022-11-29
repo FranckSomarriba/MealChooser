@@ -27,6 +27,12 @@ def about():
 def mealchooser():
     return render_template('mealchooser.html', food=site_functions.food(), foodlist=site_functions.fastFoodDict, title='mealchooser')
 
+
+@app.route('/homecook', methods=['POST', 'GET'])
+def homecook():
+    return render_template('homecook.html', food=site_functions.homecook(), foodlist=site_functions.recipeDict, title='homecook')
+
+
 @app.route('/singup', methods=['GET','POST'])
 def singup():
     form = RegistrationForm()
