@@ -4,7 +4,7 @@ from flask import render_template, request, url_for, redirect, flash, abort
 from mealchooser import app, db, bcrypt, mail
 from mealchooser import site_functions
 from mealchooser.models import User
-from mealchooser.forms import RegistrationForm, LoginForm
+from mealchooser.forms import RegistrationForm, LoginForm, PreviousForm, UpdateAdvertisingForm
 from mealchooser.forms import RequestResetForm,ResetPasswordForm
 from flask_mail import Message
 from flask_login import current_user, login_user, logout_user, login_required
@@ -48,10 +48,6 @@ def signup():
 def promotions():
     return render_template("promotions.html",title= "promotions")
 
-@app.route('/previous')
-def previous():
-    return render_template("previous.html",title= "previous")
-
 @app.route('/login')
 def login():
     if current_user.is_authenticated:
@@ -71,14 +67,7 @@ def login():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', sender='noreply@demo.com', recipients=[user.email])
-<<<<<<< Updated upstream
-    msg.body = f'''To reset your password visit the following link:
-{url_for('reset_token', token =token,_external = True)}
-
-If you did not made this request simply ignore this email and no changes will be made
-=======
     msg.body = f'''To reset your password visit the following link:{url_for('reset_token', token =token,_external = True)}If you did not made this request simply ignore this email and no changes will be made
->>>>>>> Stashed changes
                 '''
     mail.send(msg)
 
@@ -120,8 +109,6 @@ def account():
     return render_template('account.html', title='Account')
 
 
-<<<<<<< Updated upstream
-=======
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -135,15 +122,45 @@ def register():
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
->>>>>>> Stashed changes
 
-@app.route('/like/<int:post_id>/<action>')
-def like_action(post_id, action):
-    post = Post.query.filter_by(id=post_id).first_or_404()
-    if action == 'like':
-        session['user_id'].like_post(post)
+@app.route('/previous', methods=['GET','POST'])
+def previous():
+    form = PreviousForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        previous = previous(previousdata=form.previousdata.data, email=form.email.data, password=hashed_password)
+        db.session.add(previous)
         db.session.commit()
-    if action == 'unlike':
-        session['user_id'].unlike_post(post)
-        db.session.commit()
-    return redirect(request.referrer)
+        flash(f'Account created for {form.previousdata.data}!', 'success')
+        return redirect(url_for('login'))
+    return render_template("previous.html", title="previousdata", form=form)
+
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
+
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn
+
+# @app.route("/advertising", methods=['GET', 'POST'])
+# @login_required
+# def account():
+#     form = UpdateAdvertisingForm()
+#     if form.validate_on_submit():
+#         current_user.username = form.username.data
+#         current_user.email = form.email.data
+#         db.session.commit()
+#         flash('Your account has been updated!', 'success')
+#         return redirect(url_for('account'))
+#     elif request.method == 'GET':
+#         form.username.data = current_user.username
+#         form.email.data = current_user.email
+#     image_file = url_for('static', filename='images/restaurant logos' + current_user.image_file)
+#     return render_template('account.html', title='Account', image_file=image_file, form=form)
+
