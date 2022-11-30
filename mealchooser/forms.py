@@ -47,15 +47,6 @@ class ResetPasswordForm(FlaskForm):
                                      validators=[DataRequired(), EqualTo('password')])
 submit = SubmitField('Resert Password')
 
-<<<<<<< Updated upstream
-
-
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')
-=======
 class PreviousForm(FlaskForm):
     previousdata = StringField('previousdata',
                            validators=[DataRequired(), Length(min=2, max=20)])
@@ -92,4 +83,3 @@ class UpdateAdvertisingForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('That email is taken. Please choose a different one.')
->>>>>>> Stashed changes

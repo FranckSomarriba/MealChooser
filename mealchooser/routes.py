@@ -67,14 +67,7 @@ def login():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', sender='noreply@demo.com', recipients=[user.email])
-<<<<<<< Updated upstream
-    msg.body = f'''To reset your password visit the following link:
-{url_for('reset_token', token =token,_external = True)}
-
-If you did not made this request simply ignore this email and no changes will be made
-=======
     msg.body = f'''To reset your password visit the following link:{url_for('reset_token', token =token,_external = True)}If you did not made this request simply ignore this email and no changes will be made
->>>>>>> Stashed changes
                 '''
     mail.send(msg)
 
@@ -116,8 +109,6 @@ def account():
     return render_template('account.html', title='Account')
 
 
-<<<<<<< Updated upstream
-=======
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -131,20 +122,7 @@ def register():
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
->>>>>>> Stashed changes
 
-<<<<<<< Updated upstream
-@app.route('/like/<int:post_id>/<action>')
-def like_action(post_id, action):
-    post = Post.query.filter_by(id=post_id).first_or_404()
-    if action == 'like':
-        session['user_id'].like_post(post)
-        db.session.commit()
-    if action == 'unlike':
-        session['user_id'].unlike_post(post)
-        db.session.commit()
-    return redirect(request.referrer)
-=======
 @app.route('/previous', methods=['GET','POST'])
 def previous():
     form = PreviousForm()
@@ -170,23 +148,19 @@ def save_picture(form_picture):
 
     return picture_fn
 
-@app.route("/advertising", methods=['GET', 'POST'])
-@login_required
-def account():
-    form = UpdateAdvertisingForm()
-    if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('Your account has been updated!', 'success')
-        return redirect(url_for('account'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
-    image_file = url_for('static', filename='images/restaurant logos' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file=image_file, form=form)
+# @app.route("/advertising", methods=['GET', 'POST'])
+# @login_required
+# def account():
+#     form = UpdateAdvertisingForm()
+#     if form.validate_on_submit():
+#         current_user.username = form.username.data
+#         current_user.email = form.email.data
+#         db.session.commit()
+#         flash('Your account has been updated!', 'success')
+#         return redirect(url_for('account'))
+#     elif request.method == 'GET':
+#         form.username.data = current_user.username
+#         form.email.data = current_user.email
+#     image_file = url_for('static', filename='images/restaurant logos' + current_user.image_file)
+#     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
->>>>>>> Stashed changes
