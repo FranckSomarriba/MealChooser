@@ -27,19 +27,13 @@ def about():
 def mealchooser():
     return render_template('mealchooser.html', food=site_functions.food(), foodlist=site_functions.fastFoodDict, title='mealchooser')
 
-<<<<<<< HEAD
-
 @app.route('/homecook', methods=['POST', 'GET'])
 def homecook():
     return render_template('homecook.html', food=site_functions.homecook(), foodlist=site_functions.recipeDict, title='homecook')
 
 
-@app.route('/singup', methods=['GET','POST'])
-def singup():
-=======
 @app.route('/signup', methods=['GET','POST'])
 def signup():
->>>>>>> df80017b1903360c96c9bd43f20ed3282757ed4a
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -60,8 +54,19 @@ def previous():
 
 @app.route('/login')
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = LoginForm()
-    return render_template("login.html", title="Login", form=form)
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check email and password', 'danger')
+    return render_template('login.html', title='Login', form=form)
+
 
 def send_reset_email(user):
     token = user.get_reset_token()
@@ -70,7 +75,7 @@ def send_reset_email(user):
 {url_for('reset_token', token =token,_external = True)}
 
 If you did not made this request simply ignore this email and no changes will be made
-'''
+                '''
     mail.send(msg)
 
 @app.route("/reset_password", methods=['GET', 'POST'])
@@ -102,17 +107,13 @@ def reset_token(token):
         return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form = form)
 
-def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
-        else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+
+
+
+@app.route("/account")
+@login_required
+def account():
+    return render_template('account.html', title='Account')
+
+
 
