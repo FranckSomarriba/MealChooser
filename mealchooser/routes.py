@@ -71,10 +71,14 @@ def login():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', sender='noreply@demo.com', recipients=[user.email])
+<<<<<<< Updated upstream
     msg.body = f'''To reset your password visit the following link:
 {url_for('reset_token', token =token,_external = True)}
 
 If you did not made this request simply ignore this email and no changes will be made
+=======
+    msg.body = f'''To reset your password visit the following link:{url_for('reset_token', token =token,_external = True)}If you did not made this request simply ignore this email and no changes will be made
+>>>>>>> Stashed changes
                 '''
     mail.send(msg)
 
@@ -116,4 +120,20 @@ def account():
     return render_template('account.html', title='Account')
 
 
+<<<<<<< Updated upstream
+=======
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You are now able to log in', 'success')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)
+>>>>>>> Stashed changes
 
