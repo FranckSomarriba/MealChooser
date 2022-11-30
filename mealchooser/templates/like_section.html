@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <style>
+                .fa {   
+                font-size: 25px;
+                cursor: pointer;
+                user-select: none;
+                }
+                .like{
+                color: rgb(0, 139, 90);
+                }
+                .disLike{
+                 color: rgb(247, 16, 16);
+                }
+                </style>
+        </head>
+        <body>
+            <div class="up_down_buttons">
+                <button class="btn" id="like"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+               <button class="btn" id="disLike"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>    
+       </div>
+            <script>
+                var likebtn = document.querySelector('#like');
+                var dislikebtn = document.querySelector('#disLike');
+        
+        likebtn.addEventListener('click', function() {
+          
+            if (dislikebtn.classList.contains('disLike')) {
+              dislikebtn.classList.remove('disLike');
+            } 
+          this.classList.toggle('like');
+          
+        });
+        
+        dislikebtn.addEventListener('click', function() {
+          
+            if (likebtn.classList.contains('like')) {
+              likebtn.classList.remove('like');
+            } 
+          this.classList.toggle('disLike');
+          
+        });
+        
+        
+                </script>
+        
+        </body>
+</html>

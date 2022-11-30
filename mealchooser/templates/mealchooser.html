@@ -7,12 +7,12 @@
         <article class="media content-section">
             <div class="mealchooser">
             <h2 class="food-title">{{ foods }}</h2>
-            <a href="{{foodlist[foods][1]}}" ><img src="/static/images/restaurant logos/{{ foods }}.png" class="food_images" alt="{{ foods }}" width='40%' height="40%"></a>
-            </div>
+            <a href="{{foodlist[foods][1]}}" ><img src="/static/images/restaurant logos/{{ foods }}.png" class="food_images" alt="{{ foods }}" width='40%' height="40%"></a>        
+                <div class="like_sect">{% include 'like_section.html' %}</div>
+        </div>
         </article>
 
         {% endfor %}
-
 
 
 {% endblock content %}

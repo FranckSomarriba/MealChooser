@@ -137,3 +137,13 @@ def register():
     return render_template('register.html', title='Register', form=form)
 >>>>>>> Stashed changes
 
+@app.route('/like/<int:post_id>/<action>')
+def like_action(post_id, action):
+    post = Post.query.filter_by(id=post_id).first_or_404()
+    if action == 'like':
+        session['user_id'].like_post(post)
+        db.session.commit()
+    if action == 'unlike':
+        session['user_id'].unlike_post(post)
+        db.session.commit()
+    return redirect(request.referrer)
